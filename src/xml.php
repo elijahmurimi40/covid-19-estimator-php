@@ -3,6 +3,8 @@ header("Content-Type: application/xml");
 include_once 'estimator.php';
 $results = showResults();
 
+echo generateXML($results); 
+
 function generateXml($data) {
     $dataR = $data['data'];
     unset($dataR['region']);
@@ -37,5 +39,3 @@ function generateXml($data) {
 
     return $xmlDoc->saveXML($root);
 }
-
-echo generateXML($results);
