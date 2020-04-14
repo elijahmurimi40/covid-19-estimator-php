@@ -1,0 +1,6 @@
+<?php
+
+// error codes
+define('REQUEST_METHOD_NOT_VALID', 100);
+define('REQUEST_CONTENT_TYPE_NOT_VALID', 101);
+define('PERIOD_TYPE_NOT_VALID', 102);
