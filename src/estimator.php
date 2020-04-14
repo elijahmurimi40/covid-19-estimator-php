@@ -82,9 +82,11 @@ function covid19ImpactEstimator($data)
 function showResults() {
   $jsonData = MyFunctions::checkRequestMethod($_SERVER['REQUEST_METHOD']);
   if (!empty($jsonData)) :
+    $time = microtime(true);
     $checkedJsonData = MyFunctions::checkContentType($jsonData);
     $decodedData = json_decode($checkedJsonData, true);
-    $finalData = covid19ImpactEstimator($decodedData); 
+    $finalData = covid19ImpactEstimator($decodedData);
+    MyFunctions::writeLogMessages($time); 
     return $finalData;
   else :
     MyFunctions::throwError(REQUEST_CONTENT_TYPE_NOT_VALID, 

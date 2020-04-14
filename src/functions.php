@@ -52,13 +52,12 @@ class MyFunctions {
     // write log messges
     public static function writeLogMessages($time) {
         $timeTaken = ($time - $_SERVER['REQUEST_TIME_FLOAT']);
-        $time2 = microtime(true);
         
         $actualLink = (
             isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") 
             . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
-        $message = time()."\t\t".$actualLink."\t\t".date("H:i:s",$timeTaken);
+        $message = time()."\t\t".$actualLink."\t\t".$timeTaken;
         file_put_contents('logs.txt', 
             $message."\n", 
             FILE_APPEND | LOCK_EX);
