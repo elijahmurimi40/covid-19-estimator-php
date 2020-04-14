@@ -3,7 +3,7 @@ header("Content-Type: application/xml");
 include_once 'estimator.php';
 $results = showResults();
 
-echo generateXML($results); 
+echo generateXML($results);  
 
 function generateXml($data) {
     $dataR = $data['data'];
